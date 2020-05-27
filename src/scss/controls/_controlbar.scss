@@ -1,0 +1,153 @@
+.controlbar {
+  background: $c-grey;
+  display: flex;
+  height: 50px;
+  width: 100%;
+
+  button {
+    align-items: center;
+    background-color: transparent;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 0;
+    display: none;
+    flex-grow: 0;
+    flex-shrink: 0;
+    height: 50px;
+    justify-content: center;
+    // position: relative;
+    width: 50px;
+
+    &.visible {
+      display: flex;
+    }
+    &.disabled {
+      pointer-events: none;
+    }
+    &.disconnected {
+      opacity: .3;
+      pointer-events: none;
+    }
+    &:not(.about) {
+      &:after {
+        background: transparent;
+        border-radius: 100%;
+        content: '';
+        height: 28px;
+        transition: 300ms background-color $t-ease;
+        width: 28px;
+        position: absolute;
+      }
+
+      &:hover {
+        &:after {
+          background: rgba(white, 0.2);
+          transition: 150ms background-color $t-ease;
+        }
+      }
+    }
+
+    .tt {
+      border: 1px solid rgba(white, .5);
+      background: rgba($c-d-grey, .9);
+      border-radius: 3px;
+      box-sizing: border-box;
+      color: rgba(white, .75);
+      font-size: 11px;
+      font-weight: bold;
+      line-height: 12px;
+      opacity: 0;
+      padding: 3px;
+      pointer-events: none;
+      position: absolute;
+      top: -21px;
+      transition: 150ms opacity $t-ease;
+      right: 1px;
+      width: calc(100% - 2px);
+      z-index: 10;
+    }
+
+    // &:first-of-type {
+    //   .tt {
+    //     left: 5px;
+    //     right: auto;
+    //   }
+    // }
+
+    &:hover {
+      .tt {
+        opacity: 1;
+        transition: 300ms opacity 300ms $t-ease;
+      }
+    }
+  }
+
+  .about {
+    background-image: url(../assets/0020-G-Kodama.png);
+    margin-right: auto;
+
+    &:hover {
+      background-image: url(../assets/0020-W-Kodama.png);
+    }
+  }
+
+  .close {
+    margin-left: auto;
+
+    &:before {
+      align-items: center;
+      border: 1px solid rgba(white, 0.5);
+      border-radius: 100%;
+      box-shadow: 0 0 1px rgba(white, 0.5) inset;
+      box-sizing: border-box;
+      color: rgba(white, 0.5);
+      content: '\271B';
+      display: flex;
+      font-size: 20px;
+      height: 28px;
+      justify-content: center;
+      line-height: 20px;
+      margin: auto;
+      transform: rotate(45deg);
+      width: 28px;
+      position: absolute;
+    }
+  }
+
+  .update {
+    background-image: url(../assets/0400-D-Update.png);
+
+    &:not(.connected) {
+      display: none;
+    }
+  }
+
+  .settings {
+    background-image: url(../assets/9800-E-Settings.png);
+  }
+
+  .connect {
+    background-image: url(../assets/0450-D-Connect.png);
+
+    &.on {
+      background-image: url(../assets/0450-E-Connect.png);
+    }
+  }
+
+  .motors {
+    background-image: url(../assets/0430-D-Motors.png);
+
+    &.on {
+      background-image: url(../assets/0430-E-Motors.png);
+    }
+  }
+
+
+  .led {
+    background-image: url(../assets/0420-D-Lighting.png);
+
+    &.on {
+      background-image: url(../assets/0420-E-Lighting.png);
+    }
+  }
+}

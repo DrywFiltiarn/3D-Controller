@@ -1,0 +1,84 @@
+#home {
+  button {
+    &.axes {
+      background-image: url(../assets/1010-D-Axes.png);
+      
+      &.enabled {
+        background-image: url(../assets/1010-E-Axes.png);
+      }
+      &.active {
+        background-image: url(../assets/1010-A-Axes.png);
+      }
+    }
+    &.hotend {
+      background-image: url(../assets/1020-D-Nozzle.png);
+
+      &:not(.enabled) {
+        .label span {
+          font-size: 0;
+  
+          &:after {
+            content: '--';
+            font-size: 14px;
+          }
+        }
+      }
+      
+      &.enabled {
+        background-image: url(../assets/1020-E-Nozzle.png);
+
+        .label span:after {
+          content: '°'
+        }
+      }
+      &.active {
+        background-image: url(../assets/1020-A-Nozzle.png);
+      }
+    }
+    &.bed {
+      background-image: url(../assets/1030-D-Hotbed.png);
+      
+      &:not(.enabled) {
+        .label span {
+          font-size: 0;
+  
+          &:after {
+            content: '--';
+            font-size: 14px;
+          }
+        }
+      }
+
+      &.enabled {
+        background-image: url(../assets/1030-E-Hotbed.png);
+        
+        .label span:after {
+          content: '°'
+        }
+      }
+      &.active {
+        background-image: url(../assets/1030-A-Hotbed.png);
+      }
+    }
+    &.purge {
+      background-image: url(../assets/1040-D-Purge.png);
+      
+      &.enabled {
+        background-image: url(../assets/1040-E-Purge.png);
+      }
+      &.active {
+        background-image: url(../assets/1040-A-Purge.png);
+      }
+    }
+    &.level {
+      background-image: url(../assets/1050-D-Level.png);
+      
+      &.enabled {
+        background-image: url(../assets/1050-E-Level.png);
+      }
+      &.active {
+        background-image: url(../assets/1050-A-Level.png);
+      }
+    }
+  }
+}

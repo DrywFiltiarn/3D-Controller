@@ -1,0 +1,20 @@
+<div class="screen dialog" id="print_cancel"
+  data-controls='{ "about": ["visible", "disabled"] }'
+  data-buttons='{ "print_stop_no": ["visible", "left"], "print_stop_yes": ["visible", "right"] }'>
+
+  <div class="subscreen question">
+    <div class="left"><img src="assets/0510-R-Warning.png"></div>
+    <div class="right">
+      <h1>WARNING</h1>
+      <p class="white">Are you sure you want to stop your print? This action cannot be undone.<br>Note: Actual stop may be delayed.</p>
+    </div>
+  </div>
+  <div class="subscreen confirm">
+    <div class="left"><img src="assets/0510-R-Warning.png"></div>
+    <div class="right">
+      <h1>CANCELLED</h1>
+      <p class="white">The 3D print was cancelled upon user request.</p>
+      <p data-binding="ptime_proc"></p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="screen dialog" id="update_bardo"
+  data-controls='{ "about": ["visible", "disabled"] }'
+  data-buttons='{ "update_cancel": ["visible", "left"], "update_confirm": ["visible", "right"] }'>
+
+  <div class="subscreen confirm">
+    <div class="left"><img src="assets/0500-G-Update.png"></div>
+    <div class="right">
+      <h1>BARDO FIRMWARE UPDATE</h1>
+      <p class="msg"></p>
+      <div class="option small">
+        <div class="checkbox"><input id="skip_bardo_update" type="checkbox"><span></span></div>
+        <label for="skip_bardo_update">Skip this update</label>
+      </div>
+    </div>
+  </div>
+  <div class="subscreen process">
+    <div class="left"><img src="assets/0500-G-Update.png"></div>
+    <div class="right">
+      <h1>UPDATING BARDO FIRMWARE</h1>
+      <p>The firmware update is in progress.<br>Please wait until it completes. Do not unplug the USB cable or turn off your machine until the update is completed.</p>
+    </div>
+  </div>
+  <div class="subscreen complete">
+    <div class="left"><img src="assets/0520-G-Success.png"></div>
+    <div class="right">
+      <h1>BARDO FIRMWARE UPDATED</h1>
+      <p>The firmware update succesfully completed. You are now ready to use the latest version of the firmware.</p>
+    </div>
+  </div>
+</div>

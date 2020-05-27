@@ -1,0 +1,165 @@
+@import "inc/reset";
+@import "inc/fonts";
+@import "inc/vars";
+@import "inc/form";
+
+@import "buttons/all";
+@import "controls/all";
+@import "screens/all";
+
+body { 
+  background: $c-grey;
+  font-family: helv-neue, sans-serif;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 22px);
+  margin: 22px 0 0;
+  padding: 0;
+  position: relative;
+  user-select: none;
+  width: 100vw;
+
+  &:before {
+    -webkit-app-region: drag; 
+    align-items: center;
+    background: $c-d-grey;
+    box-sizing: border-box;
+    color: rgba(white, 0.5);
+    content: 'Kodama Trinity (Trinus 1.3 Virtual LCD)';
+    display: flex;
+    font-size: 14px;
+    font-weight: bold;
+    height: 22px;
+    justify-content: center;
+    left: 0;
+    line-height: 1em;
+    cursor: move;
+    padding: 0 5px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+
+  .wincontrols {
+    cursor: pointer;
+    display: none;
+    justify-content: flex-end;
+    height: 22px;
+    left: 0;
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    width: 100%;
+
+    .minimize {
+      background: transparent;
+      height: 100%;
+      pointer-events: all;
+      position: relative;
+      transition: 300ms all $t-ease;
+      width: 30px;
+
+      &:before {
+        background: rgba(white, .5);
+        content: '';
+        height: 2px;
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        transition: 300ms all $t-ease;
+        width: 10px;
+      }
+
+      &:hover {
+        background: rgba(white, .2);
+        transition: 300ms all $t-ease;
+
+        &:before {
+          background: white;
+          transition: 300ms all $t-ease;
+        }
+      }
+    }
+    .close {
+      background: transparent;
+      height: 100%;
+      pointer-events: all;
+      position: relative;
+      transition: 300ms all $t-ease;
+      width: 30px;
+      
+      &:before,
+      &:after {
+        background: rgba(white, .5);
+        content: '';
+        height: 12px;
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transition: 300ms all $t-ease;
+        width: 2px;
+      }
+      &:before {
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+      &:after {
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+
+      &:hover {
+        background: #9e0b0f;
+        transition: 150ms all $t-ease;
+
+        &:before,
+        &:after {
+          background: white;
+          transition: 150ms all $t-ease;
+        }
+      }
+    }
+  }
+
+  .startup {
+    align-items: center;
+    background: $c-grey;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+  }
+
+  &.ready {
+    .startup {
+      opacity: 0;
+      pointer-events: none;
+      transition: 500ms opacity 500ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
+  }
+
+  &.win32 {
+    &:before {
+      justify-content: flex-start;
+      width: calc(100% - 60px);
+    }
+
+    .wincontrols {
+      display: flex;
+    }
+  }
+}
+
+.top {
+  height: 100%;
+}
+.bottom {
+  background: $c-d-grey;
+  flex-grow: 0;
+  flex-shrink: 0;
+  height: 50px;
+}

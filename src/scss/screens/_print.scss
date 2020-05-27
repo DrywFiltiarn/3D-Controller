@@ -1,0 +1,154 @@
+#print {
+  flex-wrap: wrap;
+
+  .progress {
+    align-items: center;
+    display: flex;
+    height: 16px;
+    margin: 0 -10px;
+    width: calc(100% + 20px);
+
+    .time {
+      flex-shrink: 0;
+      font-size: 16px;
+      font-weight: bold;
+      line-height: 16px;
+      width: 80px;
+      text-align: right;
+    }
+    .perc {
+      flex-shrink: 0;
+      font-size: 16px;
+      font-weight: bold;
+      line-height: 16px;
+      width: 50px;
+
+      &:after {
+        content: '%';
+      }
+    }
+    .bar {
+      background: rgba(white, 0.1);
+      height: 100%;
+      margin: 10px;
+      width: 100%;
+
+      .fill {
+        background-color: $c-blue;
+        height: 100%;
+      }
+    }
+  }
+  button {
+    &.fan {
+      background-image: url(../assets/2010-D-Fan.png);
+      
+      &:not(.enabled) {
+        .label span {
+          font-size: 0;
+  
+          &:after {
+            content: '--';
+            font-size: 14px;
+          }
+        }
+      }
+
+      &.enabled {
+        background-image: url(../assets/2010-E-Fan.png);
+
+        .label span:after {
+          content: '%'
+        }
+      }
+      &.active {
+        background-image: url(../assets/2010-A-Fan.png);
+      }
+    }
+    &.hotend {
+      background-image: url(../assets/1020-D-Nozzle.png);
+
+      &:not(.enabled) {
+        .label span {
+          font-size: 0;
+  
+          &:after {
+            content: '--';
+            font-size: 14px;
+          }
+        }
+      }
+      
+      &.enabled {
+        background-image: url(../assets/1020-E-Nozzle.png);
+
+        .label span:after {
+          content: '°'
+        }
+      }
+      &.active {
+        background-image: url(../assets/1020-A-Nozzle.png);
+      }
+    }
+    &.bed {
+      background-image: url(../assets/1030-D-Hotbed.png);
+      
+      &:not(.enabled) {
+        .label span {
+          font-size: 0;
+  
+          &:after {
+            content: '--';
+            font-size: 14px;
+          }
+        }
+      }
+
+      &.enabled {
+        background-image: url(../assets/1030-E-Hotbed.png);
+        
+        .label span:after {
+          content: '°'
+        }
+      }
+      &.active {
+        background-image: url(../assets/1030-A-Hotbed.png);
+      }
+    }
+    &.feedrate {
+      background-image: url(../assets/2040-D-Speed.png);
+
+      &:not(.active) {
+        .label span {
+          font-size: 0;
+  
+          &:after {
+            content: 'Feedrate';
+            font-size: 14px;
+          }
+        }
+      }
+
+      &.enabled {
+        background-image: url(../assets/2040-E-Speed.png);
+      }
+      &.active {
+        background-image: url(../assets/2040-A-Speed.png);
+
+        .label span:after {
+          content: '%'
+        }
+      }
+    }
+    &.babystep {
+      background-image: url(../assets/2050-D-Babystep.png);
+      
+      &.enabled {
+        background-image: url(../assets/2050-E-Babystep.png);
+      }
+      &.active {
+        background-image: url(../assets/2050-A-Babystep.png);
+      }
+    }
+  }
+}

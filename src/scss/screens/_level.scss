@@ -1,0 +1,9 @@
+#level {
+  .step {
+    display: none;
+
+    &.current {
+      display: block;
+    }
+  }
+}

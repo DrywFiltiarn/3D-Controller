@@ -1,0 +1,36 @@
+<div class="screen columns" id="print"
+  data-controls='{ "about": ["visible", "disabled"], "led": ["visible"] }'
+  data-buttons='{ "print_pause": ["visible", "small"], "print_stop": ["visible", "small"], "print_file": ["visible", "label", "disabled"] }'>
+
+  <div class="progress">
+    <div class="time" data-binding="ptime_proc"></div>
+    <div class="bar"><div class="fill"></div></div>
+    <div class="perc" data-binding="pperc"></div>
+  </div>
+
+  <button class="fan"
+    data-eval='[{"expr":[["connected","eq",1]],"class":"enabled"},{"expr":[["fan","gt",0]],"class":"active"}]'
+    data-x-action='{"action":"open","page":"fan"}'>
+    <span class="label"><span data-binding="fan">--</span></span>
+  </button>
+  <button class="hotend"
+    data-eval='[{"expr":[["hotend_c","gt",0],["connected","eq",1]],"class":"enabled"},{"expr":[["hotend_t","gt",0]],"class":"active"}]'
+    data-x-action='{"action":"open","page":"hotend"}'>
+    <span class="label"><span data-binding="hotend_c">--</span>/<span data-binding="hotend_t">--</span></span>
+  </button>
+  <button class="bed"
+    data-eval='[{"expr":[["heatbed_c","gt",0],["connected","eq",1]],"class":"enabled"},{"expr":[["heatbed_t","gt",0]],"class":"active"}]'
+    data-x-action='{"action":"open","page":"bed"}'>
+    <span class="label"><span data-binding="heatbed_c">--</span>/<span data-binding="heatbed_t">--</span></span>
+  </button>
+  <button class="feedrate"
+    data-eval='[{"expr":[["connected","eq",1]],"class":"enabled"},{"expr":[["feedrate","ne",100]],"class":"active"}]'
+    data-x-action='{"action":"open","page":"feedrate"}'>
+    <span class="label"><span data-binding="feedrate">--</span></span>
+  </button>
+  <button class="babystep"
+    data-eval='[{"expr":[["connected","eq",1]],"class":"enabled"}]'
+    data-x-action='{"action":"open","page":"babystep"}'>
+    <span class="label">Babystep</span>
+  </button>
+</div>

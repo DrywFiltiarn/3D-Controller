@@ -1,0 +1,102 @@
+ABLSTATUS:
+  NOT_RUNNING = 0,
+  HOMING,
+  SENSING,
+  SAVING_MESH,
+  CENTERING,
+  COMPLETED_PHASE1,
+  SAVING_OFFSET,
+  COMPLETED_PHASE2
+
+
+HOME:
+  PURGE:
+    G91
+    G1 E50 F250
+    G90
+
+  MANUAL LEVEL:
+    OPEN:
+      G4 P100
+      G28
+      G4 P100
+      G1 Z7.5 F300
+      G1 X15 Y110 F2400   ; Position 1
+      G1 Z0 F300
+    NEXT 1:
+      G1 Z7.5 F300
+      G1 X15 Y15 F2400    ; Position 2
+      G1 Z0 F300
+    NEXT 2:
+      G1 Z7.5 F300
+      G1 X105 Y15 F2400   ; Position 3
+      G1 Z0 F300
+    NEXT 3:
+      G1 Z7.5 F300
+      G1 X105 Y105 F2400  ; Position 4
+      G1 Z0 F300
+    FINISH -> G1 X60 Y62.5 F2400  ; Center
+    RESTART -> GOTO "OPEN"
+    CANCEL -> G1 Z7.5 F300
+  AUTO LEVEL:
+    OPEN:
+      M1102 P1
+      ON ABLSTATUS 5 (CENTERING) -> AUTO LEVEL EXPLAIN
+  AUTO LEVEL EXPLAIN:
+    ---
+  AUTO LEVEL OFFSET:
+    -> -.10 -> M1102 Z-100
+    -> -.01 -> M1102 Z-10
+    ->  .01 -> M1102 Z10
+    ->  .10 -> M1102 Z100
+    FINISH -> GOTO "AUTO LEVEL FINISH"
+  AUTO LEVEL FINISH:
+    OPEN:
+      M1102 P2
+  FEEDRATE:
+    ACCEPT -> M220 S[value]
+  BABYSTEP:
+    -> -.10 -> M1103 Z-0.1
+    -> -.01 -> M1103 Z-0.01
+    ->  .01 -> M1103 Z0.01
+    ->  .10 -> M1103 Z0.1
+  FAN:
+    ACCEPT -> M106 S[value]
+  PRINT:
+    PAUSE:
+      M25
+      M91
+      G1 Z5
+      G90
+    RESUME:
+      M91
+      G1 Z-5
+      G90
+      M24
+    STOP -> GOTO "PRINT STOP"
+  PRINT STOP:
+    NO -> GOTO PRINT
+    YES -> M1104 A
+  PRINT DONE:
+    REPRINT -> M1104 R
+  BROWSE SD:
+    OPEN:
+      M1104 I
+    DIR UP:
+      M1104 U
+    SCROLL UP:
+      M1104 L O[value]
+    SCROLL DOWN:
+      M1104 L O[value]
+    SELECT:
+      M1104 I[value]
+    OPEN:
+      M1104 S[value]
+
+    
+  
+
+
+
+
+    

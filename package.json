@@ -1,0 +1,90 @@
+{
+  "author": {
+    "name": "Martijn Bosgraaf",
+    "email": "drywfiltiarn@gmail.com",
+    "url": "https://trinity.kodama3d.com"
+  },
+  "copyright": "Copyright © 2020 Martijn Bosgraaf",
+  "license": "ISC",
+  "name": "3d Controller",
+  "productName": "3D Controller",
+  "version": "1.0.0",
+  "description": "A desktop remote controller for 3D printers",
+  "main": "main.js",
+  "scripts": {
+    "dev": "run-p dev-gulp dev-electron",
+    "dev-gulp": "gulp dev",
+    "dev-electron": "electron . dev",
+    "build": "gulp build",
+    "start": "gulp build && electron .",
+    "electron": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "release": "gulp build && electron-builder"
+  },
+  "build": {
+    "appId": "com.netsence.3dcontroller",
+    "copyright": "Copyright © 2020 Martijn Bosgraaf",
+    "asarUnpack": [
+      "**/*.node"
+    ],
+    "files": [
+      "build/**/*",
+      "node_modules/**/*",
+      "main.js",
+      "package.json"
+    ],
+    "directories": {
+      "buildResources": "resources",
+      "output": "releases"
+    },
+    "dmg": {
+      "sign": true
+    },
+    "mac": {
+      "entitlements": "./resources/entitlements.mac.inherit.plist",
+      "gatekeeperAssess": false,
+      "hardenedRuntime": true,
+      "type": "distribution"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "publish": null,
+    "buildDependenciesFromSource": true,
+    "remoteBuild": true
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.7.6",
+    "browser-sync": "^2.26.7",
+    "browserify": "^16.5.1",
+    "cssnano": "^4.1.10",
+    "del": "^5.1.0",
+    "dotenv": "^8.2.0",
+    "electron": "^8.3.0",
+    "electron-builder": "^22.6.1",
+    "electron-notarize": "^0.3.0",
+    "electron-packager": "^14.2.1",
+    "electron-rebuild": "^1.10.1",
+    "gulp": "^4.0.2",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^8.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-typescript": "^6.0.0-alpha.1",
+    "gulp-uglify-es": "^2.0.0",
+    "gulp-util": "^3.0.8",
+    "npm-run-all": "^4.1.5",
+    "tsify": "^4.0.1",
+    "typescript": "^3.8.3",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0"
+  },
+  "dependencies": {
+    "@serialport/list": "^8.0.7",
+    "avrgirl-arduino": "^4.2.3",
+    "electron-dl": "^3.0.0",
+    "md5-file": "^5.0.0",
+  }
+}

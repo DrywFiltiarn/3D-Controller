@@ -1,0 +1,29 @@
+<div class="screen columns" id="home"
+  data-controls='{ "about": ["visible"], "connect": ["visible"], "settings": ["visible"], "motors": ["visible"], "led": ["visible"] }' 
+  data-buttons='{ "sdbrowse": ["visible", "full"] }'>
+  <button class="axes"
+    data-eval='[{"expr":[["connected","eq",1]],"class":"enabled"}]'
+    data-x-action='{"action":"open","page":"axes"}'>
+    <span class="label">Axes</span>
+  </button>
+  <button class="hotend"
+    data-eval='[{"expr":[["hotend_c","gt",0],["connected","eq",1]],"class":"enabled"},{"expr":[["hotend_t","gt",0]],"class":"active"}]'
+    data-x-action='{"action":"open","page":"hotend"}'>
+    <span class="label"><span data-binding="hotend_c">--</span>/<span data-binding="hotend_t">--</span></span>
+  </button>
+  <button class="bed"
+    data-eval='[{"expr":[["heatbed_c","gt",0],["connected","eq",1]],"class":"enabled"},{"expr":[["heatbed_t","gt",0]],"class":"active"}]'
+    data-x-action='{"action":"open","page":"bed"}'>
+    <span class="label"><span data-binding="heatbed_c">--</span>/<span data-binding="heatbed_t">--</span></span>
+  </button>
+  <button class="purge"
+    data-eval='[{"expr":[["hotend_c","gte",190],["hotend_t","gte",190],["connected","eq",1]],"class":"enabled"}]'
+    data-x-action='{"action":"serial","method":"purge"}'>
+    <span class="label">Purge</span>
+  </button>
+  <button class="level"
+    data-eval='[{"expr":[["connected","eq",1]],"class":"enabled"}]'
+    data-x-action='{"action":"open","page":"level"}'>
+    <span class="label">Level</span>
+  </button>
+</div>

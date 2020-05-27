@@ -1,0 +1,138 @@
+#sdbrowse {
+  align-items: center;
+  display: flex;
+
+  .topnav {
+    align-items: center;
+    box-sizing: border-box;
+    color: rgba(white, 0.5);
+    display: flex;
+    font-weight: bold;
+    height: 50px;
+    left: 0;
+    padding: 0 0 0 60px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+
+    .location {
+      align-items: center;
+      display: flex;
+
+      &:before {
+        background-image: url(../assets/0310-G-Opendir.png);
+        content: '';
+        display: inline-block;
+        height: 32px;
+        margin: 0 10px 0 0;
+        width: 32px;
+      }
+    }
+
+    .return {
+      background: transparent;
+      background-image: url(../assets/0350-D-Dirup.png);
+      background-position: center;
+      background-repeat: no-repeat;
+      border: 0;
+      height: 50px;
+      margin: 0 0 0 auto;
+      pointer-events: none;
+      width: 50px;
+
+      &.enabled {
+        background-image: url(../assets/0350-E-Dirup.png);
+        pointer-events: all;
+      }
+    }
+  }
+
+  .entries {
+    width: 100%;
+    .entry {
+      align-items: center;
+      color: rgba(white, 0.5);
+      display: flex;
+      font-weight: bold;
+      height: 40px;
+      transition: 300ms color $t-ease;
+
+      &.selected,
+      &:hover {
+        color: white;
+        transition: 150ms color $t-ease;
+      }
+
+      &:before {
+        content: '';
+        display: inline-block;
+        height: 32px;
+        margin: 0 9px 0 -11px;
+        width: 32px;
+      }
+
+      &.gcode,
+      &.dir {
+        cursor: pointer;
+      }
+      &.gcode {
+        &:before {
+          background-image: url(../assets/0330-G-Gcodefile.png);
+        }
+        &.selected {
+          &:before {
+            background-image: url(../assets/0330-W-Gcodefile.png);
+          }
+        }
+      }
+      &.dir {
+        &:before {
+          background-image: url(../assets/0320-G-Closeddir.png);
+        }
+        &.selected {
+          &:before {
+            background-image: url(../assets/0320-W-Closeddir.png);
+          }
+        }
+      }
+    }
+  }
+
+  .scroll {
+    display: flex;
+    flex-direction: column;
+    height: 130px;
+    justify-content: space-between;
+    margin: 0 -20px 0 0;
+    width: 50px;
+
+    button {
+      background: transparent;
+      background-position: center;
+      background-repeat: no-repeat;
+      border: 0;
+      height: 50px;
+      pointer-events: none;
+      width: 50px;
+
+      &.enabled {
+        pointer-events: all;
+      }
+
+      &.up {
+        background-image: url(../assets/0810-D-Up.png);
+
+        &.enabled {
+          background-image: url(../assets/0810-E-Up.png);
+        }
+      }
+      &.down {
+        background-image: url(../assets/0820-D-Down.png);
+
+        &.enabled {
+          background-image: url(../assets/0820-E-Down.png);
+        }
+      }
+    }
+  }
+}

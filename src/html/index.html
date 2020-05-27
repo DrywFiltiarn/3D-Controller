@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Kodama Trinity (Trinus 1.3 Virtual LCD)</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';">
+    <link rel="stylesheet" href="css/styles.min.css">
+  </head>
+  <body>
+    <div class="wincontrols">
+      <div class="minimize" title="Minimize"></div>
+      <div class="close" title="Quit"></div>
+    </div>
+    <div class="startup">
+      <img src="assets/0010-W-Kodama.png">
+    </div>
+    <div class="controlbar">
+      <button class="about" data-action='{"action":"open","page":"about"}'><span class="tt">Machine and app information</span></span></button>
+      <button class="close" data-action='{"action":"open","page":"home"}'><span class="tt">Close</span></button>
+      <button class="connect"
+        data-eval='[{"expr":[["connected","eq",1]],"class":"on"}]'
+        data-action='{"action":"serial","method":"toggle","target":"connection"}'><span class="tt">Connect/disconnect printer</span></span></button>
+      <button class="settings" data-action='{"action":"open","page":"settings"}'><span class="tt">Settings</span></button>
+      <button class="motors"
+        data-eval='[{"expr":[["connected","eq",1],["mhold","eq",1]],"class":"on"},{"expr":[["connected","ne",1]],"class":"disconnected"}]'
+        data-action='{"action":"serial","method":"toggle","target":"motors"}'><span class="tt">Toggle motor hold</span></button>
+      <button class="update"
+        data-eval='[{"expr":[["connected","eq",1]],"class":"connected"},{"expr":[["connected","ne",1]],"class":"disconnected"}]'
+        data-action='{"action":"serial","method":"update"}'><span class="tt">Check for firmware updates</span></button>
+      <button class="led"
+        data-eval='[{"expr":[["connected","eq",1],["light","eq",1]],"class":"on"},{"expr":[["connected","ne",1]],"class":"disconnected"}]'
+        data-action='{"action":"serial","method":"toggle","target":"light"}'><span class="tt">Toggle model light</span></button>
+    </div>
+    <div class="top">
+      <!--#include file="screens/about.html" -->
+      <!--#include file="screens/axes.html" -->
+      <!--#include file="screens/babystep.html" -->
+      <!--#include file="screens/bed.html" -->
+      <!--#include file="screens/fan.html" -->
+      <!--#include file="screens/feedrate.html" -->
+      <!--#include file="screens/home.html" -->
+      <!--#include file="screens/hotend.html" -->
+      <!--#include file="screens/incompatible.html" -->
+      <!--#include file="screens/level.html" -->
+      <!--#include file="screens/levelSensor.html" -->
+      <!--#include file="screens/print.html" -->
+      <!--#include file="screens/printCancel.html" -->
+      <!--#include file="screens/printComplete.html" -->
+      <!--#include file="screens/sdbrowse.html" -->
+      <!--#include file="screens/settings.html" -->
+      <!--#include file="screens/updateBardo.html" -->
+      <!--#include file="screens/updateLcd.html" -->
+    </div>
+    <div class="bottom">
+      <div class="buttonbar">
+        <span class="loadingdummy"></span>
+        <button class="accept" data-action='{"action":"save"}'>Accept</button>
+        <button class="cancel" data-action='{"action":"return"}'>Cancel</button>
+        <button class="close" data-action='{"action":"return"}'>Close</button>
+        <button class="home" data-action='{"action":"serial","method":"gcode","command":"G28"}'>Home all</button>
+        <button class="level_cancel" data-action='{"action":"controller","method":"cancel"}'>Cancel</button>
+        <button class="level_continue" data-action='{"action":"controller","method":"continue"}'>Continue</button>
+        <button class="level_finish" data-action='{"action":"controller","method":"finish"}'>Finish</button>
+        <button class="level_manual" data-action='{"action":"controller","method":"manual"}'>Manually</button>
+        <button class="level_next" data-action='{"action":"controller","method":"next"}'>Next position</button>
+        <button class="level_restart" data-action='{"action":"controller","method":"manual"}'>Restart</button>
+        <button class="level_sensor" data-action='{"action":"open","page":"level_sensor"}'>Use sensor</button>
+        <button class="loading"></button>
+        <button class="open" data-action='{"action":"controller","method":"open"}'>Open file</button>
+        <button class="sdbrowse" data-action='{"action":"open","page":"sdbrowse"}'>Open file to print...</button>
+        <button class="save" data-action='{"action":"save"}'>Save</button>
+        <button class="print_close" data-action='{"action":"controller","method":"finish"}'>Close</button>
+        <button class="print_file"></button>
+        <button class="print_pause" data-action='{"action":"controller","method":"pause"}'></button>
+        <button class="print_reprint" data-action='{"action":"controller","method":"reprint"}'>Reprint</button>
+        <button class="print_resume" data-action='{"action":"controller","method":"resume"}'></button>
+        <button class="print_stop" data-action='{"action":"controller","method":"stop"}'></button>
+        <button class="print_stop_no" data-action='{"action":"return"}'>No, resume</button>
+        <button class="print_stop_yes" data-action='{"action":"controller","method":"stop"}'>Yes, stop</button>
+        <button class="start" data-action='{"action":"open","page":"home"}'>Close</button>
+        <button class="update_cancel" data-action='{"action":"open","page":"home"}'>Cancel</button>
+        <button class="update_confirm" data-action='{"action":"controller","method":"confirm"}'>Update</button>
+        <button class="update_download" data-action='{"action":"controller","method":"confirm"}'>Download</button>
+        <button class="update_complete" data-action='{"action":"open","page":"home"}'>Close</button>
+      </div>
+    </div>
+  </body>
+  <script src="js/deps.min.js"></script>
+  <script src="js/bundle.min.js"></script>
+</html>

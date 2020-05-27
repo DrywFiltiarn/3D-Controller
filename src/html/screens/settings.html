@@ -1,0 +1,19 @@
+<div class="screen dialog" id="settings"
+  data-controls='{ "about": ["visible", "disabled"] }' 
+  data-buttons='{ "close": ["visible", "left"], "save": ["visible", "right"] }'>
+  <div class="left"><img src="assets/9810-G-Settings.png"></div>
+  <div class="right">
+    <div class="option">
+      <div class="checkbox"><input id="abl" type="checkbox"><span></span></div>
+      <label for="abl">ABL support enabled</label>
+    </div>
+    <div class="option">
+      <div class="checkbox"><input id="autoconnect" type="checkbox"><span></span></div>
+      <label for="autoconnect">Connect on startup</label>
+    </div>
+    <div class="select">
+      <!-- <label for="port">Serial port</label> -->
+      <select id="port" size="3"></select>
+    </div>
+  </div>
+</div>

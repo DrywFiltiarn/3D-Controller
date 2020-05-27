@@ -1,0 +1,17 @@
+@import "base";
+
+.top {
+  @import "axes";
+  @import "about";
+  @import "babystep";
+  @import "bed";
+  @import "fan";
+  @import "feedrate";
+  @import "home";
+  @import "level";
+  @import "levelSensor";
+  @import "hotend";
+  @import "print";
+  @import "sdbrowse";
+  @import "settings";
+}
